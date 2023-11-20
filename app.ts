@@ -60,5 +60,7 @@ if (!logActivityForm) {
     console.log("All activities:", activities);
 
     sessionStorage.setItem("activities", JSON.stringify(activities));
+
+    // need to add reset to form after submiting
   });
 }
