@@ -46,8 +46,6 @@ function addActivity(e: Event) {
     activityLocation: location,
   };
 
-  activities.push(newActivity);
-
   console.log("New activity added:", newActivity);
   activities.push(newActivity);
   console.log("All activities:", activities);

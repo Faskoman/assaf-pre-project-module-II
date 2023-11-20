@@ -19,7 +19,6 @@ function addActivity(e) {
         activityDate: date,
         activityLocation: location,
     };
-    activities.push(newActivity);
     console.log("New activity added:", newActivity);
     activities.push(newActivity);
     console.log("All activities:", activities);
