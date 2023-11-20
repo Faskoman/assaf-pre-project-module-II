@@ -10,7 +10,12 @@ type Activity = {
 
 type ActivityArray = Activity[];
 
-const activities: ActivityArray = [];
+let activities: ActivityArray = [];
+
+const storedActivities = sessionStorage.getItem("activities");
+if (storedActivities) {
+  activities = JSON.parse(storedActivities);
+}
 
 const logActivityForm = document.querySelector("form[name='log-activity']");
 if (!logActivityForm) {
@@ -53,5 +58,7 @@ if (!logActivityForm) {
     console.log("New activity added:", newActivity);
     activities.push(newActivity);
     console.log("All activities:", activities);
+
+    sessionStorage.setItem("activities", JSON.stringify(activities));
   });
 }

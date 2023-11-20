@@ -1,4 +1,8 @@
-const activities = [];
+let activities = [];
+const storedActivities = sessionStorage.getItem("activities");
+if (storedActivities) {
+    activities = JSON.parse(storedActivities);
+}
 const logActivityForm = document.querySelector("form[name='log-activity']");
 if (!logActivityForm) {
     console.error("Couldn't find log activity form.");
@@ -27,5 +31,6 @@ else {
         console.log("New activity added:", newActivity);
         activities.push(newActivity);
         console.log("All activities:", activities);
+        sessionStorage.setItem("activities", JSON.stringify(activities));
     });
 }
