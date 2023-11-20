@@ -12,7 +12,9 @@ type ActivityArray = Activity[];
 
 const activities: ActivityArray = [];
 
-function addActivity() {
+function addActivity(e: Event) {
+  e.preventDefault();
+
   const nameInput = document.getElementById(
     "activity-name"
   ) as HTMLInputElement;
@@ -29,6 +31,21 @@ function addActivity() {
     "activity-location"
   ) as HTMLInputElement;
 
+  const name = nameInput.value;
+  const type = typeSelect.value as ActivityType;
+  const duration = Number(durationInput.value);
+  const date = dateInput.value;
+  const location = locationInput.value;
+
+  const newActivity: Activity = {
+    activityName: name,
+    activityType: type,
+    activityDuration: duration,
+    activityDate: date,
+    activityLocation: location,
+  };
+
+  activities.push(newActivity);
+
   console.log(activities);
 }
-
