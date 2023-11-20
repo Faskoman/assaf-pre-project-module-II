@@ -43,3 +43,11 @@ h6 {
 #__next {
     isolation: isolate;
 }
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-input {}
