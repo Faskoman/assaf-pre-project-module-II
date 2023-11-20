@@ -16,7 +16,7 @@
             <h2>Log activity</h2>
             <div class="form-input">
                 <label for="activity-name">Activity:</label>
-                <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus/>
+                <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus />
             </div>
             <div class="form-input">
                 <label for="activity-type">Type:</label>
@@ -28,7 +28,19 @@
             </div>
             <div class="form-input">
                 <label for="activity-duration">Duration (minutes):</label>
-                <input type="number" id="activity-duration" name="activityDuration" minlength="1" required/>
+                <input type="number" id="activity-duration" name="activityDuration" minlength="1" required />
+            </div>
+            <div class="form-input">
+                <label for="activity-date">Date:</label>
+                <input type="datetime-local" id="activity-date" name="activityDate" required />
+            </div>
+            <div class="form-input">
+                <label for="activity-location">Location:</label>
+                <input type="text" id="activity-location" name="activityLocation" />
+            </div>
+            <div class="form-buttons__container">
+                <button class="button">Reset</button>
+                <button class="button">Add Activity</button>
             </div>
         </article>
     </main>

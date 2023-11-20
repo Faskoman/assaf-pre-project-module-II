@@ -49,3 +49,16 @@ html {
   line-height: 1.4;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.button {
+  border-radius: 6px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.201);
+}
+.button:active {
+  background-color: rgba(255, 121, 64, 0.582);
+}
