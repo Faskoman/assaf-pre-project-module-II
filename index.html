@@ -13,35 +13,37 @@
 
     <main>
         <article>
-            <h2>Log activity</h2>
-            <div class="form-input">
-                <label for="activity-name">Activity:</label>
-                <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus />
-            </div>
-            <div class="form-input">
-                <label for="activity-type">Type:</label>
-                <select name="activityType" id="activity-type">
-                    <option value="A">Sport</option>
-                    <option value="B" selected>Study</option>
-                    <option value="C">Practice</option>
-                </select>
-            </div>
-            <div class="form-input">
-                <label for="activity-duration">Duration (minutes):</label>
-                <input type="number" id="activity-duration" name="activityDuration" minlength="1" required />
-            </div>
-            <div class="form-input">
-                <label for="activity-date">Date:</label>
-                <input type="datetime-local" id="activity-date" name="activityDate" required />
-            </div>
-            <div class="form-input">
-                <label for="activity-location">Location:</label>
-                <input type="text" id="activity-location" name="activityLocation" />
-            </div>
-            <div class="form-buttons__container">
-                <button class="button">Reset</button>
-                <button class="button">Add Activity</button>
-            </div>
+            <form name="log-activity" class="--card" novalidate>
+                <h2>Log activity</h2>
+                <div class="form-input">
+                    <label for="activity-name">Activity:</label>
+                    <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus />
+                </div>
+                <div class="form-input">
+                    <label for="activity-type">Type:</label>
+                    <select name="activityType" id="activity-type">
+                        <option value="A">Sport</option>
+                        <option value="B" selected>Study</option>
+                        <option value="C">Practice</option>
+                    </select>
+                </div>
+                <div class="form-input">
+                    <label for="activity-duration">Duration (minutes):</label>
+                    <input type="number" id="activity-duration" name="activityDuration" minlength="1" required />
+                </div>
+                <div class="form-input">
+                    <label for="activity-date">Date:</label>
+                    <input type="datetime-local" id="activity-date" name="activityDate" required />
+                </div>
+                <div class="form-input">
+                    <label for="activity-location">Location:</label>
+                    <input type="text" id="activity-location" name="activityLocation" />
+                </div>
+                <div class="form-buttons__container">
+                    <button type="reset" class="button">Reset</button>
+                    <button type="submit" class="button">Add Activity</button>
+                </div>
+            </form>
         </article>
     </main>
 
