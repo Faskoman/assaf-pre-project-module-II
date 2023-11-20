@@ -13,7 +13,8 @@ type ActivityArray = Activity[];
 const activities: ActivityArray = [];
 
 function addActivity(e: Event) {
-  e.preventDefault();
+//   e.preventDefault();
+  console.log("Form submitted!");
 
   const nameInput = document.getElementById(
     "activity-name"
@@ -46,6 +47,10 @@ function addActivity(e: Event) {
   };
 
   activities.push(newActivity);
+
+  console.log("New activity added:", newActivity);
+  activities.push(newActivity);
+  console.log("All activities:", activities);
 
   console.log(activities);
 }
