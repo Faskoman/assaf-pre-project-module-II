@@ -18,20 +18,27 @@
         </div>
     </header>
 
-    <div class="grid">
-        <main>
-            <article class="stats-display">
+    <main>
+        <article class="stats-display">
+            <article class="stats-display__by-date --display-none">by date
             </article>
-        </main>
-        <footer class="nav-menu">
-            <ul class="nav-menu__list">
-                <li class="nav-menu__list--item">Date</li>
-                <li class="nav-menu__list--item">Type</li>
-                <li class="nav-menu__list--item">Duration</li>
-                <li class="nav-menu__list--item">Location</li>
-            </ul>
-        </footer>
-    </div>
+            <article class="stats-display__by-type">by type
+            </article>
+            <article class="stats-display__by-duration --display-none">by duration
+            </article>
+            <article class="stats-display__by-location --display-none">by location
+            </article>
+        </article>
+    </main>
+
+    <footer class="nav-menu">
+        <ul class="nav-menu__list">
+            <li class="nav-menu__list--item">Date</li>
+            <li class="nav-menu__list--item">Type</li>
+            <li class="nav-menu__list--item">Duration</li>
+            <li class="nav-menu__list--item">Location</li>
+        </ul>
+    </footer>
 
     <script type="module" src="dist/app.js"></script>
 </body>
