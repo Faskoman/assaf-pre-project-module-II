@@ -12,7 +12,7 @@
     <header class="site-header">
         <h1 class="--centered">Activity Tracker App</h1>
         <div class="site-header__links">
-            <span><a class="site-header__links--item" href="tracker.html">Track New Activity</a></span>
+            <span><a class="site-header__links--item" href="index.html">Log Activity</a></span>
             <span><a class="site-header__links--item" href="#">Statistics</a></span>
             <span><a class="site-header__links--item" href="#">Login</a></span>
         </div>
@@ -21,34 +21,27 @@
     <main>
         <article class="--centered">
             <form name="log-activity" class="--card" novalidate>
-                <h2>Log activity</h2>
-                <div class="form-input --margin-top">
-                    <label for="activity-name">Activity:</label>
-                    <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus />
-                </div>
-                <div class="form-input">
-                    <label for="activity-type">Type:</label>
-                    <select name="activityType" id="activity-type">
+                <h2>Track New Activity</h2>
+                <div class="form-input  --margin-top">
+                    <label for="track-activity-type">Type:</label>
+                    <select name="trackActivityType" id="track-activity-type">
                         <option value="Sport">Sport</option>
-                        <option value="Study" selected>Study</option>
+                        <option value="Study">Study</option>
                         <option value="Practice">Practice</option>
                     </select>
                 </div>
-                <div class="form-input">
-                    <label for="activity-duration">Duration (minutes):</label>
-                    <input type="number" id="activity-duration" name="activityDuration" minlength="1" required />
+                <div class="form-input --display-none">
+                    <label for="activity-name">Activity:</label>
+                    <input type="text" id="activity-name" name="activityName" minlength="1" required autofocus />
                 </div>
-                <div class="form-input">
-                    <label for="activity-date">Date:</label>
-                    <input type="datetime-local" id="activity-date" name="activityDate" required />
-                </div>
-                <div class="form-input">
+                <div class="form-input --display-none">
                     <label for="activity-location">Location:</label>
                     <input type="text" id="activity-location" name="activityLocation" />
                 </div>
                 <div class="form-buttons__container --margin-top">
-                    <button type="reset" class="button">Reset</button>
-                    <button type="submit" class="button">Add Activity</button>
+                    <button class="button --display-none">Start</button>
+                    <button class="button --display-none">Pause</button>
+                    <button type="submit" class="button --display-none">Finish</button>
                 </div>
             </form>
         </article>
