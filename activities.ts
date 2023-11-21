@@ -3,7 +3,7 @@ export type ActivityType = "Sport" | "Study" | "Practice";
 export type Activity = {
   activityName: string;
   activityType: ActivityType;
-  activityDuration: number;
+  activityDuration: string;
   activityDate: string;
   activityLocation?: string;
 };
