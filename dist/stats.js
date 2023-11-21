@@ -30,14 +30,14 @@ function generateStatsHTML(topic, data) {
         Duration: ${activity.activityDuration} minutes<br>
         Location: ${activity.activityLocation || "N/A"}<br>
       `;
-            return `<li>${details}</li>`;
+            return `<li class="stats-display__by">${details}</li>`;
         })
             .join("");
     }
     else {
         itemsHTML = data.map((item) => `<li>${item}</li>`).join("");
     }
-    return `<h2>${topic}</h2><ul>${itemsHTML}</ul>`;
+    return `<h2 class="--center-text">${topic}</h2><ul>${itemsHTML}</ul>`;
 }
 function showStatsDisplay(topic) {
     const allStatsDisplays = document.querySelectorAll(".stats-display article");

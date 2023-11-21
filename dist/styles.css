@@ -187,3 +187,10 @@ html {
 .stats-display {
   padding-bottom: 4rem;
 }
+.stats-display ul {
+  padding: 0;
+  list-style: none;
+}
+.stats-display__by {
+  margin: 1rem;
+}
