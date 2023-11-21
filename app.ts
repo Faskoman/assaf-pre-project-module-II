@@ -1,8 +1,4 @@
-import {
-  ActivityType,
-  Activity,
-  activities,
-} from "./activities.js";
+import { ActivityType, Activity, activities } from "./activities.js";
 
 const logActivityForm = document.querySelector(
   "form[name='log-activity']"
@@ -28,11 +24,11 @@ if (logActivityForm) {
       "activity-location"
     ) as HTMLInputElement;
 
-    const name = nameInput.value.trim();
+    const name = nameInput.value.trim().toLowerCase();
     const type = typeSelect.value as ActivityType;
     const duration = Number(durationInput.value);
     const date = dateInput.value;
-    const location = locationInput.value.trim();
+    const location = locationInput.value.trim().toLowerCase();
 
     if (!name || isNaN(duration) || !date) {
       alert("Please fill in all required fields.");
@@ -143,11 +139,11 @@ finishButton.addEventListener("click", function () {
     const finishDate = new Date();
     const duration = Number(timerDisplay.innerText);
     const newActivity: Activity = {
-      activityName: activityNameInput.value,
+      activityName: activityNameInput.value.trim().toLowerCase(),
       activityType: activityTypeSelect.value as ActivityType,
       activityDuration: duration,
       activityDate: finishDate.toISOString(),
-      activityLocation: activityLocationInput.value,
+      activityLocation: activityLocationInput.value.trim().toLowerCase(),
     };
 
     activities.push(newActivity);

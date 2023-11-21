@@ -186,6 +186,7 @@ html {
 
 .stats-display {
   padding-bottom: 4rem;
+  text-transform: capitalize;
 }
 .stats-display ul {
   padding: 0;

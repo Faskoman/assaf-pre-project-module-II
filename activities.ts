@@ -13,6 +13,5 @@ export let activities: Activity[] = [];
 export const storedActivities = sessionStorage.getItem("activities");
 
 if (storedActivities) {
-    activities = JSON.parse(storedActivities);
-  }
-  
+  activities = JSON.parse(storedActivities);
+}
