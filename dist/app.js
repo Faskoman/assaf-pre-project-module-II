@@ -36,6 +36,7 @@ else {
 }
 let activityStarted = false;
 let timerInterval = null;
+let isTimerPaused = false;
 document.addEventListener("DOMContentLoaded", function () {
     const trackActivityForm = document.querySelector("form[name='track-activity']");
     const activityTypeSelect = document.getElementById("track-activity-type");
@@ -78,13 +79,19 @@ document.addEventListener("DOMContentLoaded", function () {
         activityStarted = true;
         let seconds = 0;
         timerInterval = setInterval(() => {
-            seconds++;
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = seconds % 60;
-            if (timerDisplay) {
-                timerDisplay.innerText = `${minutes}:${remainingSeconds}`;
+            if (!isTimerPaused) {
+                seconds++;
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                if (timerDisplay) {
+                    timerDisplay.innerText = `${minutes}:${remainingSeconds}`;
+                }
             }
         }, 1000);
+    });
+    pauseButton.addEventListener("click", function () {
+        isTimerPaused = !isTimerPaused;
+        pauseButton.innerText = isTimerPaused ? "Resume" : "Pause";
     });
     trackActivityForm?.addEventListener("submit", function (e) {
         e.preventDefault();
