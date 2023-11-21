@@ -16,11 +16,15 @@ else {
         const durationInput = document.getElementById("activity-duration");
         const dateInput = document.getElementById("activity-date");
         const locationInput = document.getElementById("activity-location");
-        const name = nameInput.value;
+        const name = nameInput.value.trim();
         const type = typeSelect.value;
         const duration = Number(durationInput.value);
         const date = dateInput.value;
-        const location = locationInput.value;
+        const location = locationInput.value.trim();
+        if (!name || isNaN(duration) || !date) {
+            alert("Please fill in all required fields.");
+            return;
+        }
         const newActivity = {
             activityName: name,
             activityType: type,

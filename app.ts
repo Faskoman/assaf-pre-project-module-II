@@ -43,11 +43,16 @@ if (!logActivityForm) {
       "activity-location"
     ) as HTMLInputElement;
 
-    const name = nameInput.value;
+    const name = nameInput.value.trim();
     const type = typeSelect.value as ActivityType;
     const duration = Number(durationInput.value);
     const date = dateInput.value;
-    const location = locationInput.value;
+    const location = locationInput.value.trim();
+
+    if (!name || isNaN(duration) || !date) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
     const newActivity: Activity = {
       activityName: name,
