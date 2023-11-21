@@ -35,6 +35,7 @@ else {
     });
 }
 let activityStarted = false;
+let timerInterval = null;
 document.addEventListener("DOMContentLoaded", function () {
     const trackActivityForm = document.querySelector("form[name='track-activity']");
     const activityTypeSelect = document.getElementById("track-activity-type");
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const startButton = document.getElementById("start-button");
     const pauseButton = document.getElementById("pause-button");
     const finishButton = document.getElementById("finish-button");
+    const timerDisplay = document.getElementById("timer-display");
     activityTypeSelect.addEventListener("change", function () {
         const selectedType = activityTypeSelect.value;
         if (selectedType) {
@@ -58,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     activityNameInput.addEventListener("input", function () {
         const activityName = activityNameInput.value;
-        if (activityName) {
+        if (activityName && !activityStarted) {
             startButton.classList.remove("--display-none");
         }
         else {
@@ -68,11 +70,21 @@ document.addEventListener("DOMContentLoaded", function () {
     startButton.addEventListener("click", function () {
         pauseButton.classList.remove("--display-none");
         finishButton.classList.remove("--display-none");
+        timerDisplay.classList.remove("--display-none");
         startButton.classList.add("--display-none");
         activityNameInput.disabled = true;
         activityTypeSelect.disabled = true;
         activityLocationInput.disabled = true;
         activityStarted = true;
+        let seconds = 0;
+        timerInterval = setInterval(() => {
+            seconds++;
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            if (timerDisplay) {
+                timerDisplay.innerText = `${minutes}:${remainingSeconds}`;
+            }
+        }, 1000);
     });
     trackActivityForm?.addEventListener("submit", function (e) {
         e.preventDefault();

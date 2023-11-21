@@ -47,6 +47,7 @@ h6 {
 :root {
   --primary-color: #dbf7ff;
   --secondary-color: #d9ddff;
+  --highlight-color: #db4848;
   --primary-button-color: #ededed;
   --secondary-button-color: #ff794094;
 }
@@ -130,4 +131,11 @@ html {
 
 .--display-none {
   display: none;
+}
+
+.timer-display {
+  font-size: xx-large;
+  font-weight: 700;
+  color: var(--highlight-color);
+  background-color: rgba(0, 0, 0, 0.15);
 }
