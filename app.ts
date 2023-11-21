@@ -60,6 +60,8 @@ if (!logActivityForm) {
   });
 }
 
+let activityStarted = false;
+
 document.addEventListener("DOMContentLoaded", function () {
   const trackActivityForm = document.querySelector(
     "form[name='track-activity']"
@@ -115,6 +117,12 @@ document.addEventListener("DOMContentLoaded", function () {
     pauseButton.classList.remove("--display-none");
     finishButton.classList.remove("--display-none");
     startButton.classList.add("--display-none");
+
+       activityNameInput.disabled = true;
+       activityTypeSelect.disabled = true;
+       activityLocationInput.disabled = true;
+   
+       activityStarted = true;
   });
 
   trackActivityForm?.addEventListener("submit", function (e) {
