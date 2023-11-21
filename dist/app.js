@@ -10,10 +10,10 @@ if (logActivityForm) {
         const locationInput = document.getElementById("activity-location");
         const name = nameInput.value.trim();
         const type = typeSelect.value;
-        const duration = durationInput.value;
+        const duration = Number(durationInput.value);
         const date = dateInput.value;
         const location = locationInput.value.trim();
-        if (!name || !duration || !date) {
+        if (!name || isNaN(duration) || !date) {
             alert("Please fill in all required fields.");
             return;
         }
@@ -76,7 +76,7 @@ startButton.addEventListener("click", function () {
             const minutes = Math.floor(seconds / 60);
             const remainingSeconds = seconds % 60;
             if (timerDisplay) {
-                timerDisplay.innerText = `${minutes}:${remainingSeconds}`;
+                timerDisplay.innerText = `${minutes}.${remainingSeconds}`;
             }
         }
     }, 1000);
@@ -88,7 +88,7 @@ pauseButton.addEventListener("click", function () {
 finishButton.addEventListener("click", function () {
     if (activityStarted) {
         const finishDate = new Date();
-        const duration = timerDisplay.innerText;
+        const duration = Number(timerDisplay.innerText);
         const newActivity = {
             activityName: activityNameInput.value,
             activityType: activityTypeSelect.value,

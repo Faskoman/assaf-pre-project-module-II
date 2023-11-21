@@ -15,14 +15,11 @@ const navMenuList = document.querySelector(".nav-menu__list") as HTMLElement;
 statsDisplayByDate.innerHTML = generateStatsHTML("Date", activities);
 
 const activityTypes = Array.from(
-  new Set(activities.map((activity) => activity.activityType))
+  new Set(activities.map((activity) => activity.activityType || "Unknown"))
 );
 statsDisplayByType.innerHTML = generateStatsHTML("Type", activityTypes);
 
-statsDisplayByDuration.innerHTML = generateStatsHTML(
-  "Duration",
-  activities.map((activity) => `${activity.activityDuration} minutes`)
-);
+statsDisplayByDuration.innerHTML = generateStatsHTML("Duration", activities);
 
 const activityLocations = Array.from(
   new Set(activities.map((activity) => activity.activityLocation || "Unknown"))
@@ -55,6 +52,20 @@ function generateStatsHTML(topic: string, data: any[]): string {
         Name: ${activity.activityName}<br>
         Type: ${activity.activityType}<br>
         Duration: ${activity.activityDuration} minutes<br>
+        Location: ${activity.activityLocation || "N/A"}<br>
+      `;
+        return `<li class="stats-display__by">${details}</li>`;
+      })
+      .join("");
+  } else if (topic === "Duration") {
+    data.sort((a, b) => b.activityDuration - a.activityDuration);
+    itemsHTML = data
+      .map((activity) => {
+        const details = `
+        Duration: ${activity.activityDuration} minutes<br>
+        Name: ${activity.activityName}<br>
+        Type: ${activity.activityType || "Unknown"}<br>
+        Date: ${activity.activityDate}<br>
         Location: ${activity.activityLocation || "N/A"}<br>
       `;
         return `<li class="stats-display__by">${details}</li>`;
