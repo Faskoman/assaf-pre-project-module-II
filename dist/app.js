@@ -32,6 +32,6 @@ else {
         activities.push(newActivity);
         console.log("All activities:", activities);
         sessionStorage.setItem("activities", JSON.stringify(activities));
-        // need to add reset to form after submiting
+        logActivityForm.reset();
     });
 }

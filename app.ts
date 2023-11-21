@@ -17,7 +17,9 @@ if (storedActivities) {
   activities = JSON.parse(storedActivities);
 }
 
-const logActivityForm = document.querySelector("form[name='log-activity']");
+const logActivityForm = document.querySelector(
+  "form[name='log-activity']"
+) as HTMLFormElement;
 if (!logActivityForm) {
   console.error("Couldn't find log activity form.");
 } else {
@@ -61,6 +63,6 @@ if (!logActivityForm) {
 
     sessionStorage.setItem("activities", JSON.stringify(activities));
 
-    // need to add reset to form after submiting
+    logActivityForm.reset();
   });
 }
