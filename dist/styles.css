@@ -169,6 +169,10 @@ html {
   text-align: center;
   transition: all 200ms ease-in-out;
 }
+.nav-menu__list--item > a {
+  text-decoration: none;
+  color: inherit;
+}
 .nav-menu__list--item:hover {
   background-color: rgba(0, 0, 0, 0.05);
   border-color: var(--secondary-button-color);
@@ -181,5 +185,5 @@ html {
 }
 
 .stats-display {
-  overflow-y: scroll;
+  padding-bottom: 4rem;
 }

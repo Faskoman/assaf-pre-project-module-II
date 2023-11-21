@@ -18,29 +18,29 @@
         </div>
     </header>
 
-    <main>
+    <main class="--centered-flex">
         <article class="stats-display">
-            <article class="stats-display__by-date --display-none">by date
+            <article id="by-date" class="stats-display__by-date --card">by date
             </article>
-            <article class="stats-display__by-type">by type
+            <article id="by-type" class="stats-display__by-type --card">by type
             </article>
-            <article class="stats-display__by-duration --display-none">by duration
+            <article id="by-duration" class="stats-display__by-duration --card">by duration
             </article>
-            <article class="stats-display__by-location --display-none">by location
+            <article id="by-location" class="stats-display__by-location --card">by location
             </article>
         </article>
     </main>
 
     <footer class="nav-menu">
         <ul class="nav-menu__list">
-            <li class="nav-menu__list--item">Date</li>
-            <li class="nav-menu__list--item">Type</li>
-            <li class="nav-menu__list--item">Duration</li>
-            <li class="nav-menu__list--item">Location</li>
+            <li class="nav-menu__list--item"><a href="#by-date">Date</a></li>
+            <li class="nav-menu__list--item"><a href="#by-type">Type</a></li>
+            <li class="nav-menu__list--item"><a href="#by-duration">Duration</a></li>
+            <li class="nav-menu__list--item"><a href="#by-location">Location</a></li>
         </ul>
     </footer>
 
-    <script type="module" src="dist/app.js"></script>
+    <script type="module" src="dist/stats.js"></script>
 </body>
 
 </html>

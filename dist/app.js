@@ -117,14 +117,14 @@ function activityFormReset() {
         clearInterval(timerInterval);
     }
 }
-function hideDisplay(...elements) {
+export function hideDisplay(...elements) {
     elements.forEach((element) => {
         if (element) {
             element.classList.add("--display-none");
         }
     });
 }
-function unHideDisplay(...elements) {
+export function unHideDisplay(...elements) {
     elements.forEach((element) => {
         if (element) {
             element.classList.remove("--display-none");

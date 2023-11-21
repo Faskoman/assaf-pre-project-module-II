@@ -1,7 +1,6 @@
 import {
   ActivityType,
   Activity,
-  ActivityArray,
   activities,
 } from "./activities.js";
 
@@ -187,7 +186,7 @@ function activityFormReset() {
   }
 }
 
-function hideDisplay(...elements: HTMLElement[]) {
+export function hideDisplay(...elements: HTMLElement[]) {
   elements.forEach((element) => {
     if (element) {
       element.classList.add("--display-none");
@@ -195,7 +194,7 @@ function hideDisplay(...elements: HTMLElement[]) {
   });
 }
 
-function unHideDisplay(...elements: HTMLElement[]) {
+export function unHideDisplay(...elements: HTMLElement[]) {
   elements.forEach((element) => {
     if (element) {
       element.classList.remove("--display-none");

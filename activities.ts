@@ -8,9 +8,7 @@ export type Activity = {
   activityLocation?: string;
 };
 
-export type ActivityArray = Activity[];
-
-export let activities: ActivityArray = [];
+export let activities: Activity[] = [];
 
 export const storedActivities = sessionStorage.getItem("activities");
 
