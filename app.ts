@@ -25,7 +25,6 @@ if (!logActivityForm) {
 } else {
   logActivityForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log("Form submitted!");
 
     const nameInput = document.getElementById(
       "activity-name"
