@@ -75,7 +75,8 @@ html {
 .site-header__links {
   display: flex;
   justify-content: space-evenly;
-  font-size: calc(.6rem + 1vw);
+  font-size: calc(.7rem + 1vw);
+  margin-top: 0.4rem;
 }
 .site-header__links--item {
   text-decoration: none;
@@ -104,9 +105,13 @@ html {
   padding: 1rem;
 }
 
-.--centered {
+.--centered-flex {
   display: flex;
   justify-content: center;
+}
+
+.--center-text {
+  text-align: center;
 }
 
 .form-input,
@@ -165,7 +170,7 @@ html {
   transition: all 200ms ease-in-out;
 }
 .nav-menu__list--item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
   border-color: var(--secondary-button-color);
 }
 .nav-menu__list--item:active {

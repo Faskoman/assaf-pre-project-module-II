@@ -10,7 +10,7 @@
 
 <body class="--primary-color">
     <header class="site-header">
-        <h1 class="--centered">Activity Tracker App</h1>
+        <h1 class="site-header__h1 --center-text">Activity Tracker App</h1>
         <div class="site-header__links">
             <span><a class="site-header__links--item" href="index.html">Log Activity</a></span>
             <span><a class="site-header__links--item" href="stats.html">Statistics</a></span>
@@ -19,7 +19,7 @@
     </header>
 
     <main>
-        <article class="--centered">
+        <article class="--centered-flex">
             <form name="track-activity" class="--card" novalidate>
                 <h2>Track New Activity</h2>
                 <div class="form-input  --margin-top">
@@ -39,7 +39,7 @@
                     <label for="activity-location">Location:</label>
                     <input type="text" id="activity-location" name="activityLocation" />
                 </div>
-                <div id="timer-display" class="timer-display --centered --margin-top --display-none">0</div>                </div>
+                <div id="timer-display" class="timer-display --center-text --margin-top --display-none">0</div>                </div>
                 <div class="form-buttons__container --margin-top">
                     <button id="start-button" class="button --display-none">Start</button>
                     <button id="pause-button" class="button --display-none">Pause</button>
@@ -47,7 +47,7 @@
                 </div>
             </form>
         </article>
-        <article class="--centered --display-none">
+        <article class="--centered-flex --display-none">
             <div class="--card">
                 <h2>Activity Added</h2>
                 <p id="new-activity-info"></p>
