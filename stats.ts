@@ -82,15 +82,4 @@ function showStatsDisplay(topic: string): void {
   const allStatsDisplays = document.querySelectorAll(
     ".stats-display article"
   ) as NodeListOf<HTMLElement>;
-
-  allStatsDisplays.forEach((display) => {
-    display.classList.add("--display-none");
-  });
-
-  const selectedStatsDisplay = document.querySelector(
-    `.stats-display__by-${topic}`
-  ) as HTMLElement;
-  if (selectedStatsDisplay) {
-    selectedStatsDisplay.classList.remove("--display-none");
-  }
 }

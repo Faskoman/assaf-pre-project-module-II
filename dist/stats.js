@@ -56,11 +56,4 @@ function generateStatsHTML(topic, data) {
 }
 function showStatsDisplay(topic) {
     const allStatsDisplays = document.querySelectorAll(".stats-display article");
-    allStatsDisplays.forEach((display) => {
-        display.classList.add("--display-none");
-    });
-    const selectedStatsDisplay = document.querySelector(`.stats-display__by-${topic}`);
-    if (selectedStatsDisplay) {
-        selectedStatsDisplay.classList.remove("--display-none");
-    }
 }

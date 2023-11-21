@@ -199,7 +199,7 @@ html {
 .stats-display {
     padding-bottom: 4rem;
     text-transform: capitalize;
-
+    
     & ul {
         padding: 0;
         list-style: none;
@@ -209,4 +209,8 @@ html {
         margin: 1rem;
 
     }
+}
+
+.--bottom-gap {
+    margin-bottom: 100vh;
 }

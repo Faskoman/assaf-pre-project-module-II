@@ -195,3 +195,7 @@ html {
 .stats-display__by {
   margin: 1rem;
 }
+
+.--bottom-gap {
+  margin-bottom: 100vh;
+}
