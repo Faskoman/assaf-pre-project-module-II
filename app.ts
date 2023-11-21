@@ -95,11 +95,9 @@ activityTypeSelect.addEventListener("change", function () {
   const selectedType = activityTypeSelect.value;
 
   if (selectedType) {
-    activityNameDiv.classList.remove("--display-none");
-    activityLocationDiv.classList.remove("--display-none");
+    unHideDisplay(activityNameDiv, activityLocationDiv);
   } else {
-    activityNameDiv.classList.add("--display-none");
-    activityLocationDiv.classList.add("--display-none");
+    hideDisplay(activityNameDiv, activityLocationDiv);
   }
 });
 
@@ -114,10 +112,8 @@ activityNameInput.addEventListener("input", function () {
 });
 
 startButton.addEventListener("click", function () {
-  pauseButton.classList.remove("--display-none");
-  finishButton.classList.remove("--display-none");
-  timerDisplay.classList.remove("--display-none");
-  startButton.classList.add("--display-none");
+  unHideDisplay(pauseButton, finishButton, timerDisplay);
+  hideDisplay(startButton);
 
   activityNameInput.disabled = true;
   activityTypeSelect.disabled = true;
@@ -171,20 +167,38 @@ trackActivityForm?.addEventListener("submit", function (e) {
 
 function activityFormReset() {
   trackActivityForm.reset();
-  activityNameDiv.classList.add("--display-none");
-  activityLocationDiv.classList.add("--display-none");
-  timerDisplay.classList.add("--display-none");
-  startButton.classList.add("--display-none");
+  hideDisplay(
+    activityNameDiv,
+    activityLocationDiv,
+    timerDisplay,
+    startButton,
+    pauseButton,
+    finishButton
+  );
 
   activityNameInput.disabled = false;
   activityTypeSelect.disabled = false;
   activityLocationInput.disabled = false;
 
   activityStarted = false;
+
   if (timerInterval) {
     clearInterval(timerInterval);
   }
+}
 
-  pauseButton.classList.add("--display-none");
-  finishButton.classList.add("--display-none");
+function hideDisplay(...elements: HTMLElement[]) {
+  elements.forEach((element) => {
+    if (element) {
+      element.classList.add("--display-none");
+    }
+  });
+}
+
+function unHideDisplay(...elements: HTMLElement[]) {
+  elements.forEach((element) => {
+    if (element) {
+      element.classList.remove("--display-none");
+    }
+  });
 }
