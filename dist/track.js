@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const finishButton = document.querySelectorAll("button.--display-none")[2];
     activityTypeSelect.addEventListener("change", function () {
         const selectedType = activityTypeSelect.value;
-        // Show/hide activity name and location based on selected type
         if (selectedType) {
             activityNameInput.classList.remove("--display-none");
             activityLocationInput.classList.remove("--display-none");
@@ -18,10 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
             activityLocationInput.classList.add("--display-none");
         }
     });
-    // Event listener for activity name input
     activityNameInput.addEventListener("input", function () {
         const activityName = activityNameInput.value;
-        // Show/hide start button based on filled activity name
         if (activityName) {
             startButton.classList.remove("--display-none");
         }
@@ -29,13 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
             startButton.classList.add("--display-none");
         }
     });
-    // Event listener for start button
     startButton.addEventListener("click", function () {
-        // Show/hide pause and finish buttons based on start button press
         pauseButton.classList.remove("--display-none");
         finishButton.classList.remove("--display-none");
     });
-    // Event listener for form submission (just for preventing default behavior in this example)
     trackActivityForm?.addEventListener("submit", function (e) {
         e.preventDefault();
     });
