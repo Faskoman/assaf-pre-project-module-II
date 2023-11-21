@@ -1,8 +1,4 @@
-let activities = [];
-const storedActivities = sessionStorage.getItem("activities");
-if (storedActivities) {
-    activities = JSON.parse(storedActivities);
-}
+import { activities } from "./activities.js";
 const logActivityForm = document.querySelector("form[name='log-activity']");
 if (!logActivityForm) {
     console.error("Couldn't find log activity form.");

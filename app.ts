@@ -1,25 +1,9 @@
-type ActivityType = "Sport" | "Study" | "Practice";
-
-type Activity = {
-  activityName: string;
-  activityType: ActivityType;
-  activityDuration: number;
-  activityDate: string;
-  activityLocation?: string;
-};
-
-type ActivityArray = Activity[];
-
-let activities: ActivityArray = [];
-
-const storedActivities = sessionStorage.getItem("activities");
-if (storedActivities) {
-  activities = JSON.parse(storedActivities);
-}
+import { ActivityType , Activity , ActivityArray , activities } from "./activities.js";
 
 const logActivityForm = document.querySelector(
   "form[name='log-activity']"
 ) as HTMLFormElement;
+
 if (!logActivityForm) {
   console.error("Couldn't find log activity form.");
 } else {

@@ -20,11 +20,12 @@
 
     <main>
         <article class="--centered">
-            <form name="log-activity" class="--card" novalidate>
+            <form name="track-activity" class="--card" novalidate>
                 <h2>Track New Activity</h2>
                 <div class="form-input  --margin-top">
                     <label for="track-activity-type">Type:</label>
-                    <select name="trackActivityType" id="track-activity-type">
+                    <select name="trackActivityType" id="track-activity-type" >
+                        <option value="" selected disabled></option>
                         <option value="Sport">Sport</option>
                         <option value="Study">Study</option>
                         <option value="Practice">Practice</option>
@@ -47,7 +48,7 @@
         </article>
     </main>
 
-    <script type="module" src="dist/app.js"></script>
+    <script type="module" src="dist/track.js"></script>
 </body>
 
 </html>
