@@ -69,9 +69,14 @@ html {
     padding-bottom: 1rem;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 
+    &__h1 {
+        font-size: calc(1rem + 2vw);
+    }
+
     &__links {
         display: flex;
         justify-content: space-evenly;
+        font-size: calc(.6rem + 1vw);
 
         &--item {
             text-decoration: none;
@@ -144,4 +149,43 @@ html {
     font-weight: 700;
     color: var(--highlight-color);
     background-color: rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu {
+    background-color: var(--secondary-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style: none;
+        padding: 0;
+        user-select: none;
+        cursor: pointer;
+
+        &--item {
+            line-height: 3rem;
+            border-top: 6px solid transparent;
+            text-align: center;
+            transition: all 200ms ease-in-out;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+                border-color: var(--secondary-button-color);
+            }
+
+            &:active {
+                background-color: var(--secondary-button-color);
+                scale: 1.1;
+                z-index: 10;
+                border-radius: 8px 8px 0 0;
+            }
+        }
+    }
+}
+
+.stats-display {
+    overflow-y: scroll;
 }

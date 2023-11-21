@@ -10,7 +10,7 @@
 
 <body class="--primary-color">
     <header class="site-header">
-        <h1 class="--centered">Activity Tracker App</h1>
+        <h1 class="site-header__h1 --centered">Activity Tracker App</h1>
         <div class="site-header__links">
             <span><a class="site-header__links--item" href="tracker.html">Track New Activity</a></span>
             <span><a class="site-header__links--item" href="index.html">Log Activity</a></span>
@@ -18,10 +18,20 @@
         </div>
     </header>
 
-    <main>
-        <article class="--centered">
-        </article>
-    </main>
+    <div class="grid">
+        <main>
+            <article class="stats-display">
+            </article>
+        </main>
+        <footer class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__list--item">Date</li>
+                <li class="nav-menu__list--item">Type</li>
+                <li class="nav-menu__list--item">Duration</li>
+                <li class="nav-menu__list--item">Location</li>
+            </ul>
+        </footer>
+    </div>
 
     <script type="module" src="dist/app.js"></script>
 </body>
