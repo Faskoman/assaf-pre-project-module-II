@@ -10,13 +10,6 @@ statsDisplayByType.innerHTML = generateStatsHTML("Type", activityTypes);
 statsDisplayByDuration.innerHTML = generateStatsHTML("Duration", activities);
 const activityLocations = Array.from(new Set(activities.map((activity) => activity.activityLocation || "Unknown")));
 statsDisplayByLocation.innerHTML = generateStatsHTML("Location", activityLocations);
-navMenuList.addEventListener("click", function (e) {
-    const target = e.target;
-    if (target.tagName === "A") {
-        const selectedTopic = target.getAttribute("href")?.substring(1) || "";
-        showStatsDisplay(selectedTopic);
-    }
-});
 function generateStatsHTML(topic, data) {
     let itemsHTML = "";
     if (topic === "Date") {
@@ -49,11 +42,23 @@ function generateStatsHTML(topic, data) {
         })
             .join("");
     }
+    else if (topic === "Type") {
+        data.sort((a, b) => new Date(b.activityDate).getTime() - new Date(a.activityDate).getTime());
+        itemsHTML = data
+            .map((activity) => {
+            const details = `
+        Date: ${activity.activityDate}<br>
+        Type: ${activity.activityType}<br>
+        Name: ${activity.activityName}<br>
+        Duration: ${activity.activityDuration} minutes<br>
+        Location: ${activity.activityLocation || "N/A"}<br>
+      `;
+            return `<li class="stats-display__by --card">${details}</li>`;
+        })
+            .join("");
+    }
     else {
         itemsHTML = data.map((item) => `<li>${item}</li>`).join("");
     }
     return `<h2 class="--center-text">${topic}</h2><ul>${itemsHTML}</ul>`;
-}
-function showStatsDisplay(topic) {
-    const allStatsDisplays = document.querySelectorAll(".stats-display article");
 }

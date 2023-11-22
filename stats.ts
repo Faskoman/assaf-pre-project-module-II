@@ -29,14 +29,6 @@ statsDisplayByLocation.innerHTML = generateStatsHTML(
   activityLocations
 );
 
-navMenuList.addEventListener("click", function (e) {
-  const target = e.target as HTMLElement;
-  if (target.tagName === "A") {
-    const selectedTopic = target.getAttribute("href")?.substring(1) || "";
-    showStatsDisplay(selectedTopic);
-  }
-});
-
 function generateStatsHTML(topic: string, data: any[]): string {
   let itemsHTML = "";
 
@@ -71,15 +63,26 @@ function generateStatsHTML(topic: string, data: any[]): string {
         return `<li class="stats-display__by --card">${details}</li>`;
       })
       .join("");
+  } else if (topic === "Type") {
+    data.sort(
+      (a, b) =>
+        new Date(b.activityDate).getTime() - new Date(a.activityDate).getTime()
+    );
+    itemsHTML = data
+      .map((activity) => {
+        const details = `
+        Date: ${activity.activityDate}<br>
+        Type: ${activity.activityType}<br>
+        Name: ${activity.activityName}<br>
+        Duration: ${activity.activityDuration} minutes<br>
+        Location: ${activity.activityLocation || "N/A"}<br>
+      `;
+        return `<li class="stats-display__by --card">${details}</li>`;
+      })
+      .join("");
   } else {
     itemsHTML = data.map((item) => `<li>${item}</li>`).join("");
   }
 
   return `<h2 class="--center-text">${topic}</h2><ul>${itemsHTML}</ul>`;
-}
-
-function showStatsDisplay(topic: string): void {
-  const allStatsDisplays = document.querySelectorAll(
-    ".stats-display article"
-  ) as NodeListOf<HTMLElement>;
 }
