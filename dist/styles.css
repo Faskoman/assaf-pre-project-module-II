@@ -50,6 +50,7 @@ h6 {
   --highlight-color: #db4848;
   --primary-button-color: #ededed;
   --secondary-button-color: #ff794094;
+  --un-focused-color: #707070;
 }
 
 html,
@@ -172,10 +173,12 @@ html {
   line-height: 3rem;
   border-top: 6px solid transparent;
   text-align: center;
+  color: var(--un-focused-color);
   transition: all 200ms ease-in-out;
 }
 .nav-menu__list--item:hover {
   background-color: rgba(0, 0, 0, 0.05);
+  color: black;
   border-color: var(--secondary-button-color);
 }
 .nav-menu__list--item:active {
@@ -199,4 +202,10 @@ html {
 
 .--bottom-gap {
   margin-bottom: 100vh;
+}
+
+.--chosen-filter {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: black;
+  border-color: var(--secondary-button-color);
 }

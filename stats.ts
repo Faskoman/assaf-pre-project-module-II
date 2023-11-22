@@ -10,7 +10,9 @@ const statsDisplayByLocation = document.getElementById(
   "by-location"
 ) as HTMLElement;
 
-const navMenuList = document.querySelector(".nav-menu__list") as HTMLElement;
+const navMenuItems = document.querySelectorAll(
+  ".nav-menu__list--item"
+) as NodeListOf<HTMLElement>;
 
 statsDisplayByDate.innerHTML = generateStatsHTML("Date", activities);
 
@@ -28,6 +30,38 @@ statsDisplayByLocation.innerHTML = generateStatsHTML(
   "Location",
   activityLocations
 );
+
+navMenuItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    unChooseFilter(...navMenuItems);
+
+    chooseFilter(item);
+
+    const selectedTopic = item.innerText.toLowerCase();
+    switch (selectedTopic) {
+      case "date":
+        statsDisplayByDate.innerHTML = generateStatsHTML("Date", activities);
+        break;
+      case "type":
+        statsDisplayByType.innerHTML = generateStatsHTML("Type", activityTypes);
+        break;
+      case "duration":
+        statsDisplayByDuration.innerHTML = generateStatsHTML(
+          "Duration",
+          activities
+        );
+        break;
+      case "location":
+        statsDisplayByLocation.innerHTML = generateStatsHTML(
+          "Location",
+          activityLocations
+        );
+        break;
+      default:
+        break;
+    }
+  });
+});
 
 function generateStatsHTML(topic: string, data: any[]): string {
   let itemsHTML = "";
@@ -64,8 +98,24 @@ function generateStatsHTML(topic: string, data: any[]): string {
       })
       .join("");
   } else {
-    itemsHTML = data.map((item) => `<li>${item}</li>`).join("");
+    itemsHTML = data.map((item) => `<li class="--card">${item}</li>`).join("");
   }
 
   return `<h2 class="--center-text">${topic}</h2><ul>${itemsHTML}</ul>`;
+}
+
+function chooseFilter(...elements: HTMLElement[]) {
+  elements.forEach((element) => {
+    if (element) {
+      element.classList.add("--chosen-filter");
+    }
+  });
+}
+
+function unChooseFilter(...elements: HTMLElement[]) {
+  elements.forEach((element) => {
+    if (element) {
+      element.classList.remove("--chosen-filter");
+    }
+  });
 }
