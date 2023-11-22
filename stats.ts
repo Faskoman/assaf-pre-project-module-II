@@ -31,11 +31,13 @@ statsDisplayByLocation.innerHTML = generateStatsHTML(
   activityLocations
 );
 
-document
-  .getElementById("backToTopButton")
-  ?.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+const backToTopButton = document.getElementById(
+  "backToTopButton"
+) as HTMLButtonElement;
+
+backToTopButton?.addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 navMenuItems.forEach((item) => {
   item.addEventListener("click", function () {
@@ -125,3 +127,4 @@ function unChooseFilter(...elements: HTMLElement[]) {
     }
   });
 }
+
