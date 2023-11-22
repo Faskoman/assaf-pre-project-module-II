@@ -4,6 +4,17 @@ const logActivityForm = document.querySelector(
   "form[name='log-activity']"
 ) as HTMLFormElement;
 
+function formatDate(date: Date): string {
+  return date.toLocaleString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+}
+
 if (logActivityForm) {
   logActivityForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -27,7 +38,7 @@ if (logActivityForm) {
     const name = nameInput.value.trim().toLowerCase();
     const type = typeSelect.value as ActivityType;
     const duration = Number(durationInput.value);
-    const date = dateInput.value;
+    const date = formatDate(new Date(dateInput.value));
     const location = locationInput.value.trim().toLowerCase();
 
     if (!name || isNaN(duration) || !date) {
@@ -143,7 +154,7 @@ finishButton.addEventListener("click", function () {
       activityName: activityNameInput.value.trim().toLowerCase(),
       activityType: activityTypeSelect.value as ActivityType,
       activityDuration: duration,
-      activityDate: finishDate.toISOString(),
+      activityDate: formatDate(finishDate),
       activityLocation: activityLocationInput.value.trim().toLowerCase(),
     };
 
