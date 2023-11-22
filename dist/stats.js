@@ -30,7 +30,7 @@ function generateStatsHTML(topic, data) {
         Duration: ${activity.activityDuration} minutes<br>
         Location: ${activity.activityLocation || "N/A"}<br>
       `;
-            return `<li class="stats-display__by">${details}</li>`;
+            return `<li class="stats-display__by --card">${details}</li>`;
         })
             .join("");
     }
