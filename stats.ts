@@ -63,23 +63,6 @@ function generateStatsHTML(topic: string, data: any[]): string {
         return `<li class="stats-display__by --card">${details}</li>`;
       })
       .join("");
-  } else if (topic === "Type") {
-    data.sort(
-      (a, b) =>
-        new Date(b.activityDate).getTime() - new Date(a.activityDate).getTime()
-    );
-    itemsHTML = data
-      .map((activity) => {
-        const details = `
-        Date: ${activity.activityDate}<br>
-        Type: ${activity.activityType}<br>
-        Name: ${activity.activityName}<br>
-        Duration: ${activity.activityDuration} minutes<br>
-        Location: ${activity.activityLocation || "N/A"}<br>
-      `;
-        return `<li class="stats-display__by --card">${details}</li>`;
-      })
-      .join("");
   } else {
     itemsHTML = data.map((item) => `<li>${item}</li>`).join("");
   }

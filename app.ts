@@ -138,6 +138,7 @@ finishButton.addEventListener("click", function () {
   if (activityStarted) {
     const finishDate = new Date();
     const duration = Number(timerDisplay.innerText);
+
     const newActivity: Activity = {
       activityName: activityNameInput.value.trim().toLowerCase(),
       activityType: activityTypeSelect.value as ActivityType,
