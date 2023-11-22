@@ -10,6 +10,11 @@ statsDisplayByType.innerHTML = generateStatsHTML("Type", activityTypes);
 statsDisplayByDuration.innerHTML = generateStatsHTML("Duration", activities);
 const activityLocations = Array.from(new Set(activities.map((activity) => activity.activityLocation || "Unknown")));
 statsDisplayByLocation.innerHTML = generateStatsHTML("Location", activityLocations);
+document
+    .getElementById("backToTopButton")
+    ?.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
 navMenuItems.forEach((item) => {
     item.addEventListener("click", function () {
         unChooseFilter(...navMenuItems);
